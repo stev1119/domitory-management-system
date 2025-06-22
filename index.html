@@ -637,7 +637,117 @@
             margin-top: 5px;
         }
 
-        /* Loading Animation */
+        /* Search Results */
+        .search-results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .search-results-header h3 {
+            color: white;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .close-search {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-search:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .quick-search-results {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 15px;
+        }
+
+        .quick-result-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .quick-result-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .quick-result-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .quick-result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .quick-result-name {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .quick-result-room {
+            color: #4facfe;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .quick-result-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .quick-result-detail {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .quick-result-detail strong {
+            color: white;
+        }
+
+        .no-results {
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            padding: 30px;
+            font-style: italic;
+        }
+
+        .search-stats {
+            background: rgba(255,255,255,0.05);
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
         .loading {
             display: inline-block;
             width: 20px;
@@ -936,30 +1046,30 @@
                         <label for="manager-select"><i class="fas fa-user-tie"></i> 담당자</label>
                         <select id="manager-select">
                             <option value="">담당자 선택</option>
-                            <option value="이영운">이영운</option>
-                            <option value="김혜정">김혜정</option>
-                            <option value="이시우">이시우</option>
-                            <option value="고승완">고승완</option>
-                            <option value="남인달">남인달</option>
-                            <option value="조영권">조영권</option>
-                            <option value="황민철">황민철</option>
-                            <option value="김건희">김건희</option>
-                            <option value="강지훈">강지훈</option>
-                            <option value="송인수">송인수</option>
-                            <option value="김영현">김영현</option>
-                            <option value="진정현">진정현</option>
-                            <option value="원현주">원현주</option>
-                            <option value="김정아">김정아</option>
-                            <option value="김지현">김지현</option>
-                            <option value="김미경">김미경</option>
-                            <option value="유나경">유나경</option>
-                            <option value="신규2">신규1</option>
+                            <option value="김철수">김철수</option>
+                            <option value="이영희">이영희</option>
+                            <option value="박민수">박민수</option>
+                            <option value="david">David</option>
+                            <option value="sarah">Sarah</option>
+                            <option value="michael">Michael</option>
+                            <option value="jenny">Jenny</option>
+                            <option value="thomas">Thomas</option>
+                            <option value="emma">Emma</option>
+                            <option value="james">James</option>
+                            <option value="sophia">Sophia</option>
+                            <option value="william">William</option>
+                            <option value="olivia">Olivia</option>
+                            <option value="benjamin">Benjamin</option>
+                            <option value="ava">Ava</option>
+                            <option value="lucas">Lucas</option>
+                            <option value="isabella">Isabella</option>
+                            <option value="henry">Henry</option>
                             <option value="mia">Mia</option>
-                            <option value="신규2">신규2</option>
-                            <option value="신규3">신규3</option>
-                            <option value="신규4">신규4</option>
-                            <option value="신규5">신규5</option>
-                            <option value="신규6">신규6</option>
+                            <option value="alexander">Alexander</option>
+                            <option value="charlotte">Charlotte</option>
+                            <option value="daniel">Daniel</option>
+                            <option value="amelia">Amelia</option>
+                            <option value="matthew">Matthew</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -1025,10 +1135,26 @@
             <!-- Search Container -->
             <div class="search-container">
                 <div class="search-bar">
-                    <input type="text" class="search-input" id="search-input" placeholder="학생 이름, 기숙사 번호, 라이브러리 좌석번호로 검색...">
+                    <input type="text" class="search-input" id="search-input" 
+                           placeholder="학생 이름, 기숙사 번호, 라이브러리 좌석번호로 검색..." 
+                           oninput="performRealTimeSearch()" 
+                           onkeypress="handleSearchKeyPress(event)">
                     <button class="search-btn" onclick="searchStudent()">
                         <i class="fas fa-search"></i> 검색
                     </button>
+                </div>
+                
+                <!-- 실시간 검색 결과 -->
+                <div id="search-results-container" style="display: none;">
+                    <div class="search-results-header">
+                        <h3 id="search-results-title">검색 결과</h3>
+                        <button class="close-search" onclick="clearSearch()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div id="quick-search-results" class="quick-search-results">
+                        <!-- 실시간 검색 결과가 여기에 표시됩니다 -->
+                    </div>
                 </div>
             </div>
 
@@ -1255,108 +1381,228 @@
             }
         }
 
-        // Google Sheets 데이터 로드
+        // Google Sheets 데이터 로드 (3인실 처리 개선)
         async function loadGoogleSheetData() {
+            console.log('🔄 데이터 로드 시작...');
             showLoading();
             
             try {
                 const range = `${SHEET_NAME}!B:P`;
                 const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}?key=${GOOGLE_API_KEY}`;
                 
+                console.log('📡 API 요청:', url);
                 const response = await fetch(url);
+                
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    const errorText = await response.text();
+                    console.error('❌ API 응답 오류:', response.status, errorText);
+                    throw new Error(`HTTP ${response.status}: ${errorText}`);
                 }
                 
                 const data = await response.json();
                 const rows = data.values || [];
+                console.log(`📊 총 ${rows.length}행 데이터 수신`);
                 
                 googleSheetData = [];
                 
-                // 첫 번째 행은 헤더이므로 건너뛰기
+                // 3인실 데이터 처리를 위한 개선된 로직
                 for (let i = 1; i < rows.length; i++) {
                     const row = rows[i];
-                    if (row[0]) { // B열(기숙사 번호)가 있는 경우만
-                        const building = row[0].charAt(0).toUpperCase();
-                        const studentData = {
-                            room: row[0] || '',
-                            name: row[1] || '미배정',
-                            status: row[2] || '',
-                            date: row[3] || '',
-                            note: row[4] || '',
-                            parentPhone: row[5] || '',
-                            studentPhone: row[6] || '',
-                            librarySeats: row[7] || '',
-                            advisor: row[8] || '',
-                            birthDate: row[10] || '',
-                            gender: genderMapping[building] || '',
-                            checkInDate: row[12] || '',
-                            school: row[13] || '',
-                            class: row[14] || ''
-                        };
-                        googleSheetData.push(studentData);
+                    
+                    if (row[0]) { // B열(기숙사 번호)가 있는 경우
+                        const roomCode = row[0].trim();
+                        const building = roomCode.charAt(0).toUpperCase();
+                        const floor = parseInt(roomCode.charAt(1));
+                        
+                        // 3인실인지 확인
+                        const is3PersonRoom = floor === 4; // 4층은 3인실
+                        
+                        if (is3PersonRoom) {
+                            // 3인실의 경우 3개 행을 확인하여 학생 데이터 처리
+                            for (let studentIndex = 0; studentIndex < 3; studentIndex++) {
+                                const currentRowIndex = i + studentIndex;
+                                const studentRow = rows[currentRowIndex];
+                                
+                                if (studentRow && studentRow.length > 1) {
+                                    const studentData = {
+                                        room: roomCode + (studentIndex > 0 ? `-${studentIndex + 1}` : ''), // 401-1, 401-2, 401-3
+                                        originalRoom: roomCode, // 원본 호실 번호
+                                        bedNumber: studentIndex + 1, // 침대 번호
+                                        name: studentRow[1] || '미배정',
+                                        status: studentRow[2] || '',
+                                        date: studentRow[3] || '',
+                                        note: studentRow[4] || '',
+                                        parentPhone: studentRow[5] || '',
+                                        studentPhone: studentRow[6] || '',
+                                        librarySeats: studentRow[7] || '',
+                                        advisor: studentRow[8] || '',
+                                        birthDate: studentRow[10] || '',
+                                        gender: genderMapping[building] || '',
+                                        checkInDate: studentRow[12] || '',
+                                        school: studentRow[13] || '',
+                                        class: studentRow[14] || '',
+                                        is3PersonRoom: true
+                                    };
+                                    googleSheetData.push(studentData);
+                                }
+                            }
+                            i += 2; // 3개 행을 처리했으므로 2개 더 건너뛰기
+                        } else {
+                            // 1인실 처리
+                            const studentData = {
+                                room: roomCode,
+                                originalRoom: roomCode,
+                                bedNumber: 1,
+                                name: row[1] || '미배정',
+                                status: row[2] || '',
+                                date: row[3] || '',
+                                note: row[4] || '',
+                                parentPhone: row[5] || '',
+                                studentPhone: row[6] || '',
+                                librarySeats: row[7] || '',
+                                advisor: row[8] || '',
+                                birthDate: row[10] || '',
+                                gender: genderMapping[building] || '',
+                                checkInDate: row[12] || '',
+                                school: row[13] || '',
+                                class: row[14] || '',
+                                is3PersonRoom: false
+                            };
+                            googleSheetData.push(studentData);
+                        }
                     }
                 }
                 
                 hideLoading();
-                showMessage('Google Sheets 데이터를 성공적으로 불러왔습니다.', 'success');
-                console.log('로드된 데이터:', googleSheetData.length, '건');
+                console.log(`✅ ${googleSheetData.length}건의 데이터 로드 완료`);
+                showMessage(`Google Sheets에서 ${googleSheetData.length}건의 데이터를 불러왔습니다.`, 'success');
                 
             } catch (error) {
                 hideLoading();
-                console.error('Google Sheets 로드 오류:', error);
-                showMessage('데이터 로드 중 오류가 발생했습니다. 모의 데이터로 전환합니다.', 'warning');
+                console.error('❌ Google Sheets 로드 오류:', error);
                 
-                // 오류 발생시 모의 데이터로 대체
+                let errorMessage = '데이터 로드 중 오류가 발생했습니다: ';
+                if (error.message.includes('403')) {
+                    errorMessage += 'API 키 권한이 없습니다. API 키와 스프레드시트 공유 설정을 확인해주세요.';
+                } else if (error.message.includes('404')) {
+                    errorMessage += '스프레드시트를 찾을 수 없습니다. 스프레드시트 ID를 확인해주세요.';
+                } else if (error.message.includes('400')) {
+                    errorMessage += '잘못된 요청입니다. 시트 이름이나 범위를 확인해주세요.';
+                } else {
+                    errorMessage += error.message;
+                }
+                
+                showMessage(errorMessage, 'error');
+                
+                // 모의 데이터로 대체
+                console.log('🔄 모의 데이터로 전환...');
                 generateMockData();
+                showMessage('Google Sheets 연결 실패로 모의 데이터를 사용합니다.', 'warning');
             }
         }
 
-        // 모의 데이터 생성
+        // 모의 데이터 생성 (3인실 처리 포함)
         function generateMockData() {
             googleSheetData = [];
             
             Object.keys(dormitoryStructure).forEach(building => {
                 Object.keys(dormitoryStructure[building]).forEach(floor => {
                     const floorInfo = dormitoryStructure[building][floor];
+                    const is3PersonRoom = parseInt(floor) === 4; // 4층은 3인실
                     
                     for (let roomNum = floorInfo.start; roomNum <= floorInfo.end; roomNum++) {
                         const roomCode = `${building}${roomNum}`;
-                        const hasStudent = Math.random() > 0.2; // 80% 확률로 학생 배정
                         
-                        if (hasStudent) {
-                            const studentData = {
-                                room: roomCode,
-                                name: generateRandomName(),
-                                status: getRandomStatus(),
-                                note: '',
-                                parentPhone: generatePhoneNumber(),
-                                studentPhone: generatePhoneNumber(),
-                                librarySeats: `L${Math.floor(Math.random() * 300) + 1}`,
-                                advisor: `담임${Math.floor(Math.random() * 10) + 1}`,
-                                birthDate: generateBirthDate(),
-                                gender: genderMapping[building],
-                                checkInDate: generateCheckInDate(),
-                                school: generateSchoolName(),
-                                class: `${Math.floor(Math.random() * 3) + 1}학년 ${Math.floor(Math.random() * 10) + 1}반`
-                            };
-                            googleSheetData.push(studentData);
+                        if (is3PersonRoom) {
+                            // 3인실 처리
+                            for (let bedNum = 1; bedNum <= 3; bedNum++) {
+                                const hasStudent = Math.random() > 0.3; // 70% 확률로 학생 배정
+                                
+                                if (hasStudent) {
+                                    const studentData = {
+                                        room: roomCode + (bedNum > 1 ? `-${bedNum}` : ''),
+                                        originalRoom: roomCode,
+                                        bedNumber: bedNum,
+                                        name: generateRandomName(),
+                                        status: getRandomStatus(),
+                                        note: '',
+                                        parentPhone: generatePhoneNumber(),
+                                        studentPhone: generatePhoneNumber(),
+                                        librarySeats: `L${Math.floor(Math.random() * 300) + 1}`,
+                                        advisor: `담임${Math.floor(Math.random() * 10) + 1}`,
+                                        birthDate: generateBirthDate(),
+                                        gender: genderMapping[building],
+                                        checkInDate: generateCheckInDate(),
+                                        school: generateSchoolName(),
+                                        class: `${Math.floor(Math.random() * 3) + 1}학년 ${Math.floor(Math.random() * 10) + 1}반`,
+                                        is3PersonRoom: true
+                                    };
+                                    googleSheetData.push(studentData);
+                                } else {
+                                    googleSheetData.push({
+                                        room: roomCode + (bedNum > 1 ? `-${bedNum}` : ''),
+                                        originalRoom: roomCode,
+                                        bedNumber: bedNum,
+                                        name: '미배정',
+                                        status: '',
+                                        note: '',
+                                        parentPhone: '',
+                                        studentPhone: '',
+                                        librarySeats: '',
+                                        advisor: '',
+                                        birthDate: '',
+                                        gender: genderMapping[building],
+                                        checkInDate: '',
+                                        school: '',
+                                        class: '',
+                                        is3PersonRoom: true
+                                    });
+                                }
+                            }
                         } else {
-                            googleSheetData.push({
-                                room: roomCode,
-                                name: '미배정',
-                                status: '',
-                                note: '',
-                                parentPhone: '',
-                                studentPhone: '',
-                                librarySeats: '',
-                                advisor: '',
-                                birthDate: '',
-                                gender: genderMapping[building],
-                                checkInDate: '',
-                                school: '',
-                                class: ''
-                            });
+                            // 1인실 처리
+                            const hasStudent = Math.random() > 0.2; // 80% 확률로 학생 배정
+                            
+                            if (hasStudent) {
+                                const studentData = {
+                                    room: roomCode,
+                                    originalRoom: roomCode,
+                                    bedNumber: 1,
+                                    name: generateRandomName(),
+                                    status: getRandomStatus(),
+                                    note: '',
+                                    parentPhone: generatePhoneNumber(),
+                                    studentPhone: generatePhoneNumber(),
+                                    librarySeats: `L${Math.floor(Math.random() * 300) + 1}`,
+                                    advisor: `담임${Math.floor(Math.random() * 10) + 1}`,
+                                    birthDate: generateBirthDate(),
+                                    gender: genderMapping[building],
+                                    checkInDate: generateCheckInDate(),
+                                    school: generateSchoolName(),
+                                    class: `${Math.floor(Math.random() * 3) + 1}학년 ${Math.floor(Math.random() * 10) + 1}반`,
+                                    is3PersonRoom: false
+                                };
+                                googleSheetData.push(studentData);
+                            } else {
+                                googleSheetData.push({
+                                    room: roomCode,
+                                    originalRoom: roomCode,
+                                    bedNumber: 1,
+                                    name: '미배정',
+                                    status: '',
+                                    note: '',
+                                    parentPhone: '',
+                                    studentPhone: '',
+                                    librarySeats: '',
+                                    advisor: '',
+                                    birthDate: '',
+                                    gender: genderMapping[building],
+                                    checkInDate: '',
+                                    school: '',
+                                    class: '',
+                                    is3PersonRoom: false
+                                });
+                            }
                         }
                     }
                 });
@@ -1870,7 +2116,147 @@
             });
         }
 
-        // 학생 검색
+        // 실시간 검색 기능
+        function performRealTimeSearch() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+            const resultsContainer = document.getElementById('search-results-container');
+            const quickResults = document.getElementById('quick-search-results');
+            
+            if (searchTerm.length === 0) {
+                resultsContainer.style.display = 'none';
+                return;
+            }
+            
+            if (searchTerm.length < 2) {
+                // 2글자 미만이면 검색하지 않음
+                return;
+            }
+            
+            const results = googleSheetData.filter(student => {
+                const searchFields = [
+                    student.name,
+                    student.room,
+                    student.originalRoom,
+                    student.librarySeats,
+                    student.studentPhone,
+                    student.parentPhone,
+                    student.advisor,
+                    student.school,
+                    student.class,
+                    student.status
+                ].filter(field => field); // 빈 값 제거
+                
+                return searchFields.some(field => 
+                    field.toLowerCase().includes(searchTerm)
+                );
+            });
+            
+            displayQuickSearchResults(results, searchTerm);
+        }
+        
+        // 빠른 검색 결과 표시
+        function displayQuickSearchResults(results, searchTerm) {
+            const resultsContainer = document.getElementById('search-results-container');
+            const quickResults = document.getElementById('quick-search-results');
+            const title = document.getElementById('search-results-title');
+            
+            resultsContainer.style.display = 'block';
+            title.textContent = `"${searchTerm}" 검색 결과 (${results.length}건)`;
+            
+            if (results.length === 0) {
+                quickResults.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 10px; opacity: 0.5;"></i>
+                        <p>검색 결과가 없습니다.</p>
+                        <p style="font-size: 0.9rem;">다른 키워드로 검색해보세요.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // 검색 통계
+            const stats = {
+                students: results.filter(r => r.name !== '미배정').length,
+                empty: results.filter(r => r.name === '미배정').length,
+                male: results.filter(r => r.gender === 'male' && r.name !== '미배정').length,
+                female: results.filter(r => r.gender === 'female' && r.name !== '미배정').length
+            };
+            
+            let html = `
+                <div class="search-stats">
+                    <i class="fas fa-chart-bar"></i> 
+                    전체 ${results.length}건 | 
+                    학생 ${stats.students}명 | 
+                    빈 자리 ${stats.empty}개 | 
+                    남학생 ${stats.male}명 | 
+                    여학생 ${stats.female}명
+                </div>
+            `;
+            
+            // 결과를 최대 10개까지만 표시
+            const displayResults = results.slice(0, 10);
+            
+            displayResults.forEach(student => {
+                const statusColor = getStatusColor(student.status);
+                const statusText = student.status || '정상';
+                const roomDisplay = student.is3PersonRoom ? 
+                    `${student.originalRoom}-${student.bedNumber}` : student.room;
+                
+                html += `
+                    <div class="quick-result-item" onclick="showStudentDetail('${student.room}')">
+                        <div class="quick-result-header">
+                            <div class="quick-result-name">${student.name}</div>
+                            <div class="quick-result-room">${roomDisplay}</div>
+                        </div>
+                        <div class="quick-result-details">
+                            <div class="quick-result-detail">
+                                <strong>상태:</strong> <span style="color: ${statusColor};">${statusText}</span>
+                            </div>
+                            ${student.librarySeats ? `
+                                <div class="quick-result-detail">
+                                    <strong>라이브러리:</strong> ${student.librarySeats}
+                                </div>
+                            ` : ''}
+                            ${student.advisor ? `
+                                <div class="quick-result-detail">
+                                    <strong>담임:</strong> ${student.advisor}
+                                </div>
+                            ` : ''}
+                            ${student.class ? `
+                                <div class="quick-result-detail">
+                                    <strong>반:</strong> ${student.class}
+                                </div>
+                            ` : ''}
+                            ${student.note ? `
+                                <div class="quick-result-detail">
+                                    <strong>비고:</strong> ${student.note}
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            if (results.length > 10) {
+                html += `
+                    <div class="search-stats" style="text-align: center; margin-top: 15px;">
+                        <i class="fas fa-info-circle"></i> 
+                        ${results.length - 10}건의 추가 결과가 있습니다. 더 구체적인 검색어를 사용해보세요.
+                    </div>
+                `;
+            }
+            
+            quickResults.innerHTML = html;
+        }
+        
+        // 검색창에서 Enter 키 처리
+        function handleSearchKeyPress(event) {
+            if (event.key === 'Enter') {
+                searchStudent();
+            }
+        }
+        
+        // 기존 검색 함수 개선
         function searchStudent() {
             const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
             if (!searchTerm) {
@@ -1879,10 +2265,22 @@
             }
             
             const results = googleSheetData.filter(student => {
-                return student.name.toLowerCase().includes(searchTerm) ||
-                       student.room.toLowerCase().includes(searchTerm) ||
-                       (student.librarySeats && student.librarySeats.toLowerCase().includes(searchTerm)) ||
-                       (student.studentPhone && student.studentPhone.includes(searchTerm));
+                const searchFields = [
+                    student.name,
+                    student.room,
+                    student.originalRoom,
+                    student.librarySeats,
+                    student.studentPhone,
+                    student.parentPhone,
+                    student.advisor,
+                    student.school,
+                    student.class,
+                    student.status
+                ].filter(field => field);
+                
+                return searchFields.some(field => 
+                    field.toLowerCase().includes(searchTerm)
+                );
             });
             
             if (results.length === 0) {
@@ -1890,7 +2288,31 @@
                 return;
             }
             
-            displayStudentCards(results, `검색 결과 (${results.length}명)`);
+            // 하단 상세 카드로 표시
+            displayStudentCards(results, `검색 결과: "${searchTerm}" (${results.length}명)`);
+            
+            // 검색 결과 영역으로 스크롤
+            document.getElementById('student-detail-cards').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+        
+        // 개별 학생 상세 정보 표시
+        function showStudentDetail(roomCode) {
+            const student = googleSheetData.find(s => s.room === roomCode);
+            if (student) {
+                displayStudentCards([student], `${student.name} 상세 정보`);
+                document.getElementById('student-detail-cards').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            }
+        }
+        
+        // 검색 결과 닫기
+        function clearSearch() {
+            document.getElementById('search-input').value = '';
+            document.getElementById('search-results-container').style.display = 'none';
+            document.getElementById('student-detail-cards').innerHTML = '';
         }
 
         // 상태별 색상 반환
